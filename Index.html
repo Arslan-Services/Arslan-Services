@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arslan Logos - Professional Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            font-family: 'Bahnschrift SemiBold Condensed', Arial, sans-serif;
+            color: #333;
+        }
+        .service-section {
+            margin-bottom: 20px;
+        }
+        .service-header {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .service-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .offer {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-left: 5px solid;
+        }
+        .offer.silver {
+            border-color: blue;
+        }
+        .offer.gold {
+            border-color: yellow;
+        }
+        .offer.platinum {
+            border-color: red;
+        }
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .order-button:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        .vibrate {
+            animation: vibrate 0.2s infinite;
+        }
+        @keyframes vibrate {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+        
+        <!-- Header -->
+        <h1>ARSLAN LOGOS</h1>
+        <p style="text-align:center; font-size: 18px; color: #555;">Professional Services for You</p>
+
+        <!-- User Info -->
+        <div id="userForm">
+            <label for="whatsapp" style="font-size: 18px;">WhatsApp Number:</label><br>
+            <input type="text" id="whatsapp" name="whatsapp" placeholder="Enter WhatsApp number" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px;" required><br>
+            <label for="name" style="font-size: 18px;">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" style="width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px;" required><br>
+            <span id="errorMsg" class="error">Please enter your WhatsApp number and name.</span>
+        </div>
+
+        <!-- Logo Design Section -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleService('logoDesign')">Logo Designing</div>
+            <div class="service-content" id="logoDesign">
+                <div class="offer silver">
+                    <p><strong>Silver Offer:</strong> $5 - We will provide your logo in 3 days.</p>
+                    <a href="#" class="order-button" onclick="placeOrder('Silver Logo Offer')">Order Now</a>
+                </div>
+                <div class="offer gold">
+                    <p><strong>Golden Offer:</strong> $10 - We will deliver your logo in 2 days.</p>
+                    <a href="#" class="order-button" onclick="placeOrder('Golden Logo Offer')">Order Now</a>
+                </div>
+                <div class="offer platinum">
+                    <p><strong>Platinum Offer:</strong> $15 - We will deliver your logo in 3 hours.</p>
+                    <a href="#" class="order-button" onclick="placeOrder('Platinum Logo Offer')">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CV Designer Service -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleService('cvDesign')">CV Designing</div>
+            <div class="service-content" id="cvDesign">
+                <div class="offer silver">
+                    <p><strong>Offer 1:</strong> $2 - Create one-page CV (details on WhatsApp).</p>
+                    <a href="#" class="order-button" onclick="placeOrder('One Page CV Design')">Order Now</a>
+                </div>
+                <div class="offer gold">
+                    <p><strong>Offer 2:</strong> $5 - Create two-page CV (details on WhatsApp).</p>
+                    <a href="#" class="order-button" onclick="placeOrder('Two Page CV Design')">Order Now</a>
+                </div>
+                <div class="offer platinum">
+                    <p><strong>Offer 3:</strong> $8 - Create 3-5 page CV (details on WhatsApp).</p>
+                    <a href="#" class="order-button" onclick="placeOrder('3-5 Pages CV Design')">Order Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Service -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleService('certificateDesign')">Certificate Designing</div>
+            <div class="service-content" id="certificateDesign">
+                <p>We will provide the best certificate for $6. Please provide details on WhatsApp.</p>
+                <a href="#" class="order-button" onclick="placeOrder('Certificate Design')">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Wedding Card Service -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleService('weddingCardDesign')">Wedding Card Designing</div>
+            <div class="service-content" id="weddingCardDesign">
+                <p>Best wedding card design for $5. Please provide details on WhatsApp.</p>
+                <a href="#" class="order-button" onclick="placeOrder('Wedding Card Design')">Order Now</a>
+            </div>
+        </div>
+
+        <!-- Letterhead Service -->
+        <div class="service-section">
+            <div class="service-header" onclick="toggleService('letterheadDesign')">Letterhead Designing</div>
+            <div class="service-content" id="letterheadDesign">
+                <p>Professional letterhead design for $6. Provide details on WhatsApp.</p>
+                <a href="#" class="order-button" onclick="placeOrder('Letterhead Design')">Order Now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Animation, Validation, and WhatsApp Redirection -->
+    <script>
+        function toggleService(serviceId) {
+            var serviceContent = document.getElementById(serviceId);
+            if (serviceContent.style.display === "none" || serviceContent.style.display === "") {
+                serviceContent.style.display = "block";
+                serviceContent.style.animation = "fadeIn 0.5s";
+            } else {
+                serviceContent.style.display = "none";
+            }
+        }
+
+        function placeOrder(service) {
+            var whatsappNumber = document.getElementById('whatsapp').value;
+            var name = document.getElementById('name').value;
+            var errorMsg = document.getElementById('errorMsg');
+
+            if (whatsappNumber === "" || name === "") {
+                errorMsg.style.display = "block";
+                document.body.classList.add('vibrate');
+                setTimeout(function() {
+                    document.body.classList.remove('vibrate');
+                }, 500);
+            } else {
+                errorMsg.style.display = "none";
+                var message = `Name: ${name}%0AService: ${service}%0AWhatsApp: ${whatsappNumber}`;
+                var whatsappLink = `https://wa.me/03118832808?text=${message}`;
+                window.open(whatsappLink, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
